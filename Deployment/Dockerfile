@@ -1,15 +1,15 @@
-# استخدام نسخة بايثون رسمية
+# Use the official Python image
 FROM python:3.9
 
-# تحديد مجلد العمل داخل السيرفر
+# Set the working directory inside the container
 WORKDIR /code
 
-# نسخ ملف المكتبات وتثبيتها
+# Copy the requirements file and install dependencies
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-# نسخ باقي ملفات المشروع (الكود، المودل، الواجهة)
+# Copy the rest of the project files (code, model, interface)
 COPY . .
 
-# تشغيل سيرفر FastAPI على المنفذ 7860 (المنفذ المعتمد في Hugging Face)
+# Run the FastAPI server on port 7860 (the default port for Hugging Face Spaces)
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
