@@ -4,8 +4,8 @@ FROM python:3.9
 # Set the working directory inside the container
 WORKDIR /code
 
-# Copy the requirements file and install dependencies
-COPY ./requirements.txt /code/requirements.txt
+# Copy the requirements file from the same directory and install dependencies
+COPY requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
 # Copy the rest of the project files (code, model, interface)
