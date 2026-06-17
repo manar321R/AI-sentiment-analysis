@@ -81,7 +81,7 @@ jobs:
 
       - name: Run validation on new dataset
         run: |
-          python student_evaluation.py
+          python Toleen_evaluation.py
 
   # ─────────────────────────────────────
   # STAGE 4: Deploy to Production
